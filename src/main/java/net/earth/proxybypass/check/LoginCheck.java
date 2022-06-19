@@ -18,7 +18,8 @@ public class LoginCheck implements Check {
                  .stream()
                  .anyMatch(address -> event.getAddress().getHostAddress().contains(address))) {
 
-             event.disallow(PlayerLoginEvent.Result.KICK_OTHER, Config.getInstance().getKickMessage());
+             return;
          }
+        event.disallow(PlayerLoginEvent.Result.KICK_OTHER, Config.getInstance().getKickMessage());
     }
 }
